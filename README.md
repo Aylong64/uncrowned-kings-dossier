@@ -1,111 +1,114 @@
-# 無冠 — Uncrowned Kings
+# Uncrowned Kings — Kuroko no Basket
 
-> *"In another era, they would have been known as prodigies. They were hidden in the shadow of the best."*
+>*"In another era, they would have been known as prodigies. They were hidden in the shadow of the best."*
 
-A dark, editorial-style player dossier showcase for the **Uncrowned Kings** from *Kuroko no Basket* — five elite high school players ranked just below the Generation of Miracles.
-
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+A dark, editorial-style player dossier showcase for the **Uncrowned Kings** from *Kuroko no Basket*, five elite high school players ranked just below the Generation of Miracles.
 
 ---
 
-## Preview
+## 🚀 Live Concept
 
-Five player cards, each with:
-- Per-character accent colour theming via CSS custom properties
-- Animated stat bars triggered on scroll
-- Staggered quality tag reveals
-- Alternating image/info layout (flips on even cards)
-- Fully responsive mobile layout
-
----
-
-## Players Featured
-
-| # | Player | School | Position | Epithet |
-|---|--------|--------|----------|---------|
-| 7 | Mibuchi Reo | Rakuzan High | SG | 夜叉 · Night Demon |
-| 5 | Nebuya Eikichi | Rakuzan High | C | 剛力 · Herculean Strength |
-| 6 | Hayama Kotaro | Rakuzan High | SF | 雷獣 · Thunder Beast |
-| 7 | Kiyoshi Teppei | Seirin High | C/PF | 鉄心 · The Iron Heart |
-| 4 | Hanamiya Makoto | Kirisaki Daiichi High | PG | 悪童 · Bad Boy |
+A character dossier interface inspired by *Kuroko no Basket*, presenting players as interactive cards with:
+- Animated stat bars
+- Staggered tag reveals
+- Dynamic color theming per card
+- Scroll-triggered transitions
 
 ---
 
-## Project Structure
+## 🛠 Tech Stack
+
+- **HTML5** — semantic structure
+- **CSS3** — layout, animation, responsive design
+- **Vanilla JavaScript** — DOM control, animation triggers, dynamic styling
+
+---
+
+## ✨ Key Features
+
+### 1. Scroll-Triggered Animation System
+- Uses `IntersectionObserver` instead of scroll events
+- Efficient, non-blocking animation triggering
+- Cards animate only when entering viewport
+
+### 2. Staggered UI Transitions
+```js
+setTimeout(() => tag.classList.add('visible'), 80 + i * 100);
+```
+- Creates controlled sequencing
+- Improves perceived smoothness and polish
+
+### 3. Dynamic Color Theming
+- Each card has a unique accent color
+- Applied programmatically to:
+  - Stat bars
+  - Text highlights
+  - Hover states
+
+### 4. Data-Driven Visual States
+- CSS variables (`--w`) control stat bar widths
+- JS toggles classes to trigger animations
+
+### 5. Responsive Layout System
+- Grid-based card layout
+- Alternating structure for visual rhythm
+- Mobile-first adjustments via media queries
+
+---
+
+## 🧠 Engineering Decisions
+
+### Why IntersectionObserver?
+- Avoids expensive scroll listeners
+- Better performance at scale
+- Native browser optimization
+
+### Why not a framework?
+- Demonstrates understanding of fundamentals
+- Full control over rendering and state
+- No abstraction hiding core logic
+
+### Why static HTML instead of rendering via JS?
+- Faster initial paint
+- Simpler SEO structure
+- Easier to maintain for small datasets
+
+---
+
+## 📂 Project Structure
 
 ```
-uncrowned-kings/
-├── Index.html       # Page structure & card markup
-├── style.css        # All styling — dark theme, cards, responsive layout
-├── main.js          # IntersectionObserver — scroll animations & stat bars
-├── Mibuchi.jpg      # Player images (local assets)
-├── Nebuya.jpg
-├── Kotaro.jpg
-├── Kiyoshi.jpg
-└── Hanamiya.jpg
+.
+├── Index.html   # UI structure and content
+├── style.css    # Layout, animations, responsiveness
+├── main.js      # Logic, animation triggers, dynamic styling
+└── assets/      # Images
 ```
 
 ---
 
-## Getting Started
-
-No build tools, no dependencies. Just clone and open.
+## ⚙️ How to Run
 
 ```bash
-git clone https://github.com/your-username/uncrowned-kings.git
-cd uncrowned-kings
+# Clone the repo
+git clone <your-repo-link>
+
+# Open in browser
+open Index.html
 ```
 
-Then open `Index.html` in your browser — or serve it locally:
-
-```bash
-# Python
-python3 -m http.server 8000
-
-# Node (npx)
-npx serve .
-```
+No dependencies or build tools required.
 
 ---
 
-## Design Notes
+## 👤 Author
 
-- **Fonts** — `Black Han Sans` (display), `DM Mono` (labels/tags), `Noto Sans JP` (body)
-- **Colour** — Near-black base (`#08080a`) with per-card accent colours set via `--accent` CSS variables
-- **Layout** — CSS Grid two-column cards; image panel fades into info panel via gradient overlay
-- **Animations** — CSS transitions on stat bars (`width` via `--w` custom property), JS-staggered tag reveals on scroll via `IntersectionObserver`
-- **Mobile** — Single-column below 680px; image panel stacks above info panel with a bottom-fade gradient
+**Ayomide Jimoh**  
+Frontend Developer (HTML, CSS, JavaScript)
 
 ---
 
-## Customisation
+## 📌 Note
 
-### Adding a new player card
+This project is for demonstration purposes and is inspired by anime content. Not affiliated with the original creators.
 
-Copy any `.card` block in `Index.html` and update:
-
-```html
-<div class="card" style="--accent:#YOUR_COLOR; --accent2:#YOUR_COLOR2;">
-  <div class="card-visual">
-    <span class="card-badge">POSITION // School Name</span>
-    <img src="YourImage.jpg" alt="">
-  </div>
-  <div class="card-info" data-num="JERSEY_NUMBER">
-    <!-- player details here -->
-  </div>
-</div>
-```
-
-The `--accent` variable cascades to the quote border, stat bars, tag highlights, and accent line on hover automatically.
-
----
-
-## Credits
-
-Characters and lore from *Kuroko no Basket* by Tadatoshi Fujimaki (© Shueisha). This is a fan project made for personal/portfolio use, not affiliated with or endorsed by the original creators.
-
----
-
-*Built with plain HTML, CSS, and JavaScript — no frameworks.*
