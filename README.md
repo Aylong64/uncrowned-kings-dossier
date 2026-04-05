@@ -110,5 +110,5 @@ Frontend Developer (HTML, CSS, JavaScript)
 
 ## 📌 Note
 
-This project is for demonstration purposes and is inspired by anime content. Not affiliated with the original creators.
+Characters and lore from *Kuroko no Basket* by Tadatoshi Fujimaki (© Shueisha). This is a fan project made for personal use and is not affiliated with or endorsed by the original creators.
 
