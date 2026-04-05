@@ -1,0 +1,437 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #08080a;
+  color: #f4f4f8;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 8vw 6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+
+.hero-kanji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 38rem;
+  color: rgba(255,255,255,0.025);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.hero-eyebrow {
+  position: relative;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: #a8a8b8;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: #a8a8b8;
+  display: block;
+}
+
+.hero h1 {
+  position: relative;
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 10rem;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: #f4f4f8;
+}
+
+.hero h1 .outline {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+  color: transparent;
+  display: block;
+}
+
+.hero h1 .solid {
+  display: block;
+}
+
+.hero-sub {
+  position: relative;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #4a4a5a;
+  max-width: 50ch;
+  line-height: 1.8;
+}
+
+.hero-stats {
+  position: relative;
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hstat {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: #4a4a5a;
+  text-transform: uppercase;
+}
+
+.hstat strong {
+  display: block;
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 2rem;
+  color: #f4f4f8;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.scroll-cue {
+  position: relative;
+  margin-top: 4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: rgba(168,168,184,0.3);
+  text-transform: uppercase;
+}
+
+
+.section-header {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 8vw 2.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+
+.section-header h2 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 2.8rem;
+  color: #f4f4f8;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.section-header span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: #4a4a5a;
+  text-transform: uppercase;
+}
+
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent);
+  margin-left: 1.5rem;
+}
+
+
+.kings {
+  position: relative;
+  z-index: 1;
+  padding: 0 8vw 9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: border-color 0.4s ease;
+}
+
+.card:hover {
+  border-color: rgba(255,255,255,0.18);
+}
+
+.card:nth-child(even) .card-visual { order: 2; }
+.card:nth-child(even) .card-info   { order: 1; }
+
+
+
+.card-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.card-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 30%, #13131a 100%);
+  pointer-events: none;
+}
+
+.card:nth-child(even) .card-visual::after {
+  background: linear-gradient(270deg, transparent 30%, #13131a 100%);
+}
+
+.card-badge {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.4rem;
+  z-index: 2;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  color: #f4f4f8;
+  background: rgba(8,8,10,0.8);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.3rem 0.8rem;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+
+
+.card-info {
+  position: relative;
+  background: #13131a;
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  overflow: hidden;
+}
+
+.card-info::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 2px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .card-info::after {
+  opacity: 1;
+}
+
+.player-school {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.player-name {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: #f4f4f8;
+  letter-spacing: 0.03em;
+}
+
+.player-name small {
+  display: block;
+  font-size: 1rem;
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  color: #a8a8b8;
+  margin-top: 0.3rem;
+}
+
+.player-epistle {
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 300;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding-left: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  border-left: 2px solid currentColor;
+}
+
+.player-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(244,244,248,0.5);
+  max-width: 44ch;
+}
+
+
+.qualities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.q-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #a8a8b8;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.q-tag.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: #4a4a5a;
+  text-transform: uppercase;
+}
+
+.stat-label {
+  width: 11ch;
+  flex-shrink: 0;
+}
+
+.stat-track {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card.in-view .stat-fill {
+  width: var(--w);
+}
+
+.stat-num {
+  width: 3ch;
+  text-align: right;
+  font-size: 0.6rem;
+}
+
+
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 7rem;
+  }
+  .hero-kanji {
+    font-size: 22rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+  .hero-kanji {
+    font-size: 14rem;
+  }
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  .player-name {
+    font-size: 2rem;
+  }
+  .card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .card-visual {
+    height: 280px;
+    order: 0 !important;
+  }
+  .card-info {
+    order: 1 !important;
+    padding: 2.2rem 1.8rem;
+  }
+  .card-visual::after {
+    background: linear-gradient(180deg, transparent 25%, #13131a 100%) !important;
+  }
+  .card-info::before {
+    display: none;
+  }
+}
